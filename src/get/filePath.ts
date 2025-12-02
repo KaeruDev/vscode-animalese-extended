@@ -24,18 +24,18 @@ export function getFilePath(
     let filePath = '';
     let cachedPath: string | undefined;
 
-    if (settings.only_sfx) {
+    if (settings.onlySFX) {
         key = isAlphabetical(key) ? 'default' : key;
     }
 
-    if (settings.harmonic_sfx) {
+    if (settings.harmonicSFX) {
         key = !isHarmonic(key) ? key : 'default';
     }
 
     cachedPath = PATH_CACHE.get(
         `${key}${VOICE_LIST.indexOf(
             settings.voice
-        )}${+settings.specialPunctuation}${+settings.only_sfx}${+settings.harmonic_sfx}`
+        )}${+settings.specialPunctuation}${+settings.onlySFX}${+settings.harmonicSFX}`
     );
     
     if (cachedPath && !settings.soundOverride) {
@@ -98,7 +98,7 @@ export function getFilePath(
         }
     }
     PATH_CACHE.set(
-        `${key}${settings.voice}${+settings.specialPunctuation}${+settings.only_sfx}${+settings.harmonic_sfx}`,
+        `${key}${settings.voice}${+settings.specialPunctuation}${+settings.onlySFX}${+settings.harmonicSFX}`,
         filePath
     );
 

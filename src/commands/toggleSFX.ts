@@ -6,8 +6,8 @@ export function getToggleSFXCommand() {
     const toggleSFXCmd = vscode.commands.registerCommand(
         'vscode-animalese.toggleSFX',
         () => {
-            const newValue = !settings.only_sfx;
-            setConfig('only_sfx', newValue);
+            const newValue = !settings.onlySFX;
+            setConfig('onlySFX', newValue);
             vscode.window.showInformationMessage(
                 newValue 
                     ? 'Animalese: Only SFX mode enabled' 
